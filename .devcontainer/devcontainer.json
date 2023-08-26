@@ -1,8 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {"dockerDashComposeVersion": "v2"}
-  },
+  "features": {},
   "customizations": {
 		"vscode": {
 			"extensions": [
@@ -24,5 +22,5 @@
   ]
 		}
   },
-  "postCreateCommand": "sudo apt update; sudo apt-get install -y git-lfs vim g++ gcc build-essential python3-pip python3-venv python-is-python3; sudo pip install --upgrade pip; sudo pip install -e .; sudo pip install ipython ipykernel"
+  "postCreateCommand": "sudo apt update; sudo apt-get install -y pre-commit vim g++ gcc build-essential python3-pip python3-venv python-is-python3; sudo pip install --upgrade pip; sudo pip install -e .; sudo pip install ipython ipykernel; wget -O snaps.tar.gz https://heibox.uni-heidelberg.de/f/dc65a8c75220477eb62d/?dl=1; tar xzf snaps.tar.gz; rm -f snaps.tar.gz"
 }
