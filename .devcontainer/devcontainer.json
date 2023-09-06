@@ -1,26 +1,30 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {},
-  "customizations": {
-		"vscode": {
-			"extensions": [
-      "GitHub.codespaces",
-      "GitHub.copilot",
-      "GitHub.copilot-labs",
-      "GitHub.github-vscode-theme",
-      "GitHub.vscode-pull-request-github",
-      "github.vscode-github-actions",
-      "mads-hartmann.bash-ide-vscode",
-      "ms-azuretools.vscode-docker",
-      "ms-python.python",
-      "ms-python.vscode-pylance",
-      "ms-toolsai.jupyter",
-      "ms-toolsai.jupyter-keymap",
-      "ms-toolsai.jupyter-renderers",
-      "ms-toolsai.vscode-jupyter-cell-tags",
-      "ms-toolsai.vscode-jupyter-slideshow"
-  ]
-		}
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "pre-commit,vim,build-essential,python3-pip,python3-venv,python-is-python3"
+    }
   },
-  "postCreateCommand": "sudo apt update; sudo apt-get install -y pre-commit vim g++ gcc build-essential python3-pip python3-venv python-is-python3; sudo pip install --upgrade pip; sudo pip install -e .; sudo pip install ipython ipykernel; wget -O snaps.tar.gz https://heibox.uni-heidelberg.de/f/dc65a8c75220477eb62d/?dl=1; tar xzf snaps.tar.gz; rm -f snaps.tar.gz"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.codespaces",
+        "GitHub.copilot",
+        "GitHub.copilot-labs",
+        "GitHub.github-vscode-theme",
+        "GitHub.vscode-pull-request-github",
+        "github.vscode-github-actions",
+        "mads-hartmann.bash-ide-vscode",
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.vscode-jupyter-slideshow"
+      ]
+    }
+  },
+  "onCreateCommand": "sudo pip install --upgrade pip; sudo pip install -e .; sudo pip install ipython ipykernel; wget -O snaps.tar.gz https://heibox.uni-heidelberg.de/f/dc65a8c75220477eb62d/?dl=1; tar xzf snaps.tar.gz; rm -f snaps.tar.gz"
 }
